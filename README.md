@@ -18,6 +18,42 @@ Separate concerns based on feature or function: Divide your application into sma
 
 Use an index.ts file to export modules: Use an index.ts file in each folder to export the modules from that folder. This can help to simplify imports and make your code more readable.
 
+Most of the code lives in the `src` folder and looks like this:
+
+```sh
+src
+|
++-- components        # shared components used across the entire application
+|
++-- features          # feature based modules
+|
++-- hooks             # shared hooks used across the entire application
+|
++-- lib               # re-exporting different libraries preconfigured for the application
+|
++-- providers         # all of the application providers
+|
++-- stores            # global state stores
+|
++-- utils             # shared utility functions
+```
+
+Lets dive further into the `features` folder, a feature could have the following structure:
+
+```sh
+src/features/awesome-feature
+|
++-- api         # exported API request declarations and api hooks related to a specific feature
+|
++-- components  # components scoped to a specific feature
+|
++-- hooks       # hooks scoped to a specific feature
+|
++-- stores      # state stores for a specific feature
+|
++-- index.ts    # entry point for the feature, it should serve as the public API of the given feature and exports everything that should be used outside the feature
+```
+
 [Show me the code](advanced)
 
 ## Extras
